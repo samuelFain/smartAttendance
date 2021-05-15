@@ -1,0 +1,28 @@
+{
+  "name": "smartAttendance",
+  "version": "1.0.0",
+  "description": "## this project is in dev stage.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm app.js",
+    "dev": "nodemon app.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuelFain/smartAttendance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuelFain/smartAttendance/issues"
+  },
+  "homepage": "https://github.com/samuelFain/smartAttendance#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
