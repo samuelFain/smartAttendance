@@ -10,7 +10,7 @@ const db = require('./config/keys').MongoURI;
 
 // Connect to Mongo
 mongoose
-	.connect(db, {useNewUrlParser: true})
+	.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
 	.then(console.log('MongoDB connected...'))
 	.catch((err) => console.log(err));
 
@@ -19,7 +19,7 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 // Body parser
-app.use(express.urlencoded({extended: false, useUnifiedTopology: true}));
+app.use(express.urlencoded({extended: false}));
 
 // Routes
 app.use('/', require('./routes/index'));

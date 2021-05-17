@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
-// User model
+// User model (mongoDB schema)
 const User = require('../models/User');
 
 // Login page
@@ -24,7 +25,7 @@ router.post('/register', (req, res) => {
 		errors.push({msg: 'Please fill in all fields'});
 	}
 
-	// Check passwords match
+	// Check if passwords match
 	if (password !== password2) {
 		errors.push({msg: 'passwords do not match'});
 	}
@@ -55,6 +56,29 @@ router.post('/register', (req, res) => {
 					password,
 					password2,
 				});
+			} else {
+				// User doesn't exist --> create new User
+				const newUser = new User({
+					name,
+					email,
+					password,
+				});
+
+				// Hash password
+				bcrypt.genSalt(10, (err, salt) =>
+					bcrypt.hash(newUser.password, salt, (err, hash) => {
+						if (err) throw err;
+						// set password to hash
+						newUser.password = hash;
+						// save user
+						newUser
+							.save()
+							.then((user) => {
+								res.redirect('/users/login');
+							})
+							.catch((err) => console.log(err));
+					})
+				);
 			}
 		});
 	}
