@@ -51,6 +51,10 @@ app.use((req, res, next) => {
 	next();
 });
 
+// Set 'public' as static folder
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'assets')));
+
 // Routes
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));

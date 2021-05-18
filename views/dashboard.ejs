@@ -1,3 +1,42 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<div class="container-fluid">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarColor02">
+			<ul class="navbar-nav mx-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/dashboard"
+						>Dashboard
+						<span class="visually-hidden">(current)</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Attendance log</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">statistics</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/users/logout">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="jumbotron jumbotron-fluid text-center bg-light">
+	<h1 class="text-primary">Dashboard</h1>
+	<h4 class="text-primary" style="display:inline-block">Welcome <%= name %> </h4>
+</div>
+	<footer class="ext-center text-lg-start position-fixed fixed-bottom bg-light">
+		<!-- Copyright -->
+		<div class="text-center p-4">
+			© 2021 Copyright: Shmuel Fainberg |
+			<a class="text-success" href="https://github.com/samuelFain">github</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+</div>

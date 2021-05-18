@@ -1,10 +1,58 @@
-<div class="row mt-5">
-	<div class="col-md-6 m-auto">
-		<div class="card card-body text-center">
-			<h1><i class="fas fa-brain fa-3x"></i></h1>
-			<p>Create an account or login</p>
-			<a href="/users/register" class="btn btn-primary btn-block mb-2">Register</a>
-			<a href="/users/login" class="btn btn-secondary btn-block">Login</a>
+<div class="jumbotron jumbotron-fluid text-center bg-light">
+	<h1 class="text-primary">Welcome to smart<small class="text-muted" id="Welcome-page-muted">Attendance</small></h1>
+	<br />
+	<h3 class="text-primary"><em>Attendance management simplified with the power of AI</em></h3>
+</div>
+
+<div class="container-flex">
+	<div class="row justify-content-center">
+		<div class="col-md-3 mx-2">
+			<div class="card card-body hover-card text-center h-100">
+				<h1><i class="far fa-id-badge fa-3x mt-5 text-primary"></i></h1>
+				<h3 class="pt-4 text-primary">Create an account or login</h3>
+				<div class="d-grid gap-2 col-8 mx-auto">
+					<a href="/users/register" class="btn btn-primary btn-lg btn-block mb-2 mt-5 text-success">Register</a>
+					<a href="/users/login" class="btn btn-secondary btn-lg btn-block text-primary">Login</a>
+					<p class="text-secondary mt-5">* Registration & Login allowed only for authorized users</p>
+
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 mx-2">
+			<div class="card hover-card mb-3 h-100">	
+    			<img src="/animation1.gif" alt="animation" id="welcome-anim"></img>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-md-3 py-5 mx-2">
+			<div class="card hover-card text-white bg-primary mb-3 h-100">
+				<div class="card-body">
+					<h2 class="welcome-card text-success">Who are we?</h2>
+					<h4 class="card-text welcome-card text-success">smartAttendance is a multipurpose attendance checking web-app, based on real-time face recognition technology.</h4>
+					<h4 class="card-text welcome-card text-success">All you need is a computer with a webcam and internet access!</h4>
+					<br><p class="text-center"><i class="far fa-comment-dots text-success fa-5x"></i></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 py-5 mx-2">
+			<div class="card hover-card text-white bg-secondary mb-3 h-100">
+				<div class="card-body">
+					<h2 class="welcome-card text-primary">How does it work?</h2>
+					<h4 class="card-text welcome-card text-primary">smartAttendance uses JavaScript based API for face detection and face recognition in the browser implemented on top of the tensorflow.js core API.</h4>
+					<h4 class="card-text welcome-card text-primary">smartAttendance can use this API to learn portrait images of people, so it can later recognize them using a web cam and mark them as present.</h4>
+					<h4 class="card-text welcome-card text-primary">The admin can access a log with all the appointments and the attendances, and receive useful statistics & information.</h4>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
+
+<footer class="ext-center text-lg-start position-fixed fixed-bottom bg-light">
+	<!-- Copyright -->
+	<div class="text-center p-4">
+		© 2021 Copyright: Shmuel Fainberg |
+		<a class="text-success" href="https://github.com/samuelFain">github</a>
+	</div>
+	<!-- Copyright -->
+</footer>
