@@ -5,54 +5,69 @@
 </div>
 
 <div class="container-flex">
-	<div class="row justify-content-center">
-		<div class="col-md-3 mx-2">
-			<div class="card card-body hover-card text-center h-100">
-				<h1><i class="far fa-id-badge fa-3x mt-5 text-primary"></i></h1>
-				<h3 class="pt-4 text-primary">Create an account or login</h3>
+	<div class="row justify-content-center ">
+		<div class="col-md-2 mx-2">
+			<div class="card card-body hover-card text-center h-100 ">
+				<h1>
+					<svg xmlns="http://www.w3.org/2000/svg" width="150" height="200" fill="currentColor" class="bi bi-person-badge text-primary" viewBox="0 0 16 16">
+						<path d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+						<path
+							d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"
+						/>
+					</svg>
+				</h1>
+				<h4 class="pt-4 text-primary">Create an account or login</h4>
 				<div class="d-grid gap-2 col-8 mx-auto">
 					<a href="/users/register" class="btn btn-primary btn-lg btn-block mb-2 mt-5 text-success">Register</a>
 					<a href="/users/login" class="btn btn-secondary btn-lg btn-block text-primary">Login</a>
-					<p class="text-secondary mt-5">* Registration & Login allowed only for authorized users</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2 mx-2">
+			<div class="card card-body hover-card text-center h-100">
+				<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" fill="currentColor" class="bi bi-camera-video text-primary" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
+				  </svg>
+				<h4 class="pt-4 text-primary">webcam demo</h4>
+				<h4 class="mt-4">This web application need to access your webcam.</h4>
+					<h4>If you want to check that it works click <a href="/demo">here</a></4>
+			</div>
+		</div>
+	</div>
+		<div class="row justify-content-center ">
+			<div class="col-md-2 py-5 mx-2">
+				<div class="card hover-card text-white h-100">
+					<div class="card-body">
+						<iframe
+							style="background: #ffff; border: none; "
+							width="300"
+							height="300"
+							src="https://charts.mongodb.com/charts-project-0-qqavs/embed/charts?id=c6b99e30-53ae-4358-a987-abb42a25dc4b&theme=light"
+						></iframe>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 py-5 mx-2">
+				<div class="card hover-card text-white bg-primary h-100">
+					<div class="card-body">
+						<h2 class="welcome-card text-success">Who are we?</h2>
+						<h5 class="card-text welcome-card text-success">smartAttendance is a multipurpose attendance checking web-app, based on real-time face recognition technology.</h5>
+						<h5 class="card-text welcome-card text-success">All you need is a computer with a webcam and internet access!</h5>
+						<br />
+						<p class="text-center"><i class="far fa-comment-dots text-success fa-3x"></i></p>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 
-				</div>
-			</div>
+	<footer class="ext-center text-lg-start position-fixed fixed-bottom bg-light">
+		<!-- Copyright -->
+		<div class="text-center p-4">
+			© 2021 Copyright: Shmuel Fainberg |
+			<a class="text-success" href="https://github.com/samuelFain">github</a>
 		</div>
-		<div class="col-md-3 mx-2">
-			<div class="card hover-card mb-3 h-100">	
-    			<img src="/animation1.gif" alt="animation" id="welcome-anim"></img>
-			</div>
-		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="col-md-3 py-5 mx-2">
-			<div class="card hover-card text-white bg-primary mb-3 h-100">
-				<div class="card-body">
-					<h2 class="welcome-card text-success">Who are we?</h2>
-					<h4 class="card-text welcome-card text-success">smartAttendance is a multipurpose attendance checking web-app, based on real-time face recognition technology.</h4>
-					<h4 class="card-text welcome-card text-success">All you need is a computer with a webcam and internet access!</h4>
-					<br><p class="text-center"><i class="far fa-comment-dots text-success fa-5x"></i></p>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-3 py-5 mx-2">
-			<div class="card hover-card text-white bg-secondary mb-3 h-100">
-				<div class="card-body">
-					<h2 class="welcome-card text-primary">How does it work?</h2>
-					<h4 class="card-text welcome-card text-primary">smartAttendance uses JavaScript based API for face detection and face recognition in the browser implemented on top of the tensorflow.js core API.</h4>
-					<h4 class="card-text welcome-card text-primary">smartAttendance can use this API to learn portrait images of people, so it can later recognize them using a web cam and mark them as present.</h4>
-					<h4 class="card-text welcome-card text-primary">The admin can access a log with all the appointments and the attendances, and receive useful statistics & information.</h4>
-				</div>
-			</div>
-		</div>
-	</div>
+		<!-- Copyright -->
+	</footer>
 </div>
-
-<footer class="ext-center text-lg-start position-fixed fixed-bottom bg-light">
-	<!-- Copyright -->
-	<div class="text-center p-4">
-		© 2021 Copyright: Shmuel Fainberg |
-		<a class="text-success" href="https://github.com/samuelFain">github</a>
-	</div>
-	<!-- Copyright -->
-</footer>
