@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<div class="container-fluid">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarColor02">
+			<ul class="navbar-nav mx-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="/dashboard">Dashboard </a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./dashboard/session">Session</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Attendance log</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Statistics</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="./about">About <span class="visually-hidden">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/users/logout">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="jumbotron jumbotron-fluid text-center bg-light">
+	<h1 class="text-primary">About</h1>
+</div>
+
+<div class="row">
+	<div class="col md-6 m-2">
+		<div class="card card-body">
+
+<h5 class="text-primary text-wrap fs-3">
+	"smartAttendance" is a self learning project, create by a junior fullstack developer to explore the possibilities of AI integration in web apps. <br /><br />
+	Technologies used in this project: <br />
+	<ul>
+		<li>Back-End: JavaScript</li>
+		<li>Front-End: EJS, bootstrap</li>
+		<li>DataBase: mongoDB</li>
+		<li>
+			AI integration: JavaScript API for face detection and face recognition in the browser implemented on top of the tensorflow.js core API <br />
+			<a href="https://justadudewhohacks.github.io/face-api.js/docs/index.html">github.io/face-api.js</a>
+		</li>
+	</ul>
+</h5>
+<h5 class="text-center">Full project documentation can be found on my <a href="https://github.com/samuelFain/smartAttendance">github</a></h5>
+
+</div>
+
+</div>
+<div class="col md-6 m-2">
+<div class="row mb-3">
+	<div class="col md-6 m-auto">
+		<div class="card card-body">
+			<h1 class="text-center mb-3"> Contact me</h1>
+			<%- include ("./partials/messages"); %>
+
+			<div class="mb-3">
+				<input class="form-control" type="text" placeholder="Your Name" id="exampleFormControlTextarea1"></input>
+			</div>
+			<div class="mb-3">
+				<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your email" />
+			</div>
+			<div class="mb-3">
+				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your message" rows="3"></textarea>
+			</div>
+			<div class="d-grid d-md-block">
+				<button type="submit" class="btn btn-primary">Send</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+</div>
+</div>
+
+<h5 class="pt-4 text-primary text-center">
+	<img src="/icons/ai.png" height="130" width="130" />
+</h5>
