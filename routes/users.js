@@ -102,14 +102,4 @@ router.get('/logout', (req, res) => {
 	res.redirect('/users/login');
 });
 
-// About page | GET /about
-router.get('/about', (req, res) => {
-	res.render('About');
-});
-
-// About page | GET /about
-router.get('/statistics', (req, res) => {
-	res.render('Statistics');
-});
-
 module.exports = router;

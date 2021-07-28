@@ -11,10 +11,18 @@ router.get('/', ensureAuthenticated, (req, res) => {
 	});
 });
 
-router.get('/session',  (req, res) => {
-	res.render('session')
+router.get('/session', (req, res) => {
+	res.render('session');
 });
 
+// About page | GET /about
+router.get('/about', (req, res) => {
+	res.render('About');
+});
 
+// Statistics page | GET /about
+router.get('/statistics', (req, res) => {
+	res.render('Statistics');
+});
 
 module.exports = router;
