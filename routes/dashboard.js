@@ -25,4 +25,9 @@ router.get('/statistics', (req, res) => {
 	res.render('Statistics');
 });
 
+// Statistics page | GET /participants
+router.get('/participants', (req, res) => {
+	res.render('participants');
+});
+
 module.exports = router;

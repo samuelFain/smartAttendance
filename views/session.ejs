@@ -9,7 +9,10 @@
 					<a class="nav-link" href="/dashboard">Dashboard</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="./session">Session <i class="fas fa-map-pin"></i></a>
+					<a class="nav-link" role="button" href="#start-new-session-modal" data-bs-toggle="modal">Session <i class="fas fa-map-pin"></i></a></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/dashboard/participants">Manage participants</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Attendance log</a>
@@ -28,7 +31,10 @@
 	</div>
 </nav>
 <div class="jumbotron jumbotron-fluid text-center bg-light">
-	<h1 class="text-primary">Session</h1>
+	<h1 class="text-primary">Live Session</h1>
+	<div class="spinner-grow text-success" role="status">
+		<!-- <span class="visually-hidden">Live session</span> -->
+	  </div>
 </div>
 
 <div class="top-padding"></div>
@@ -78,6 +84,21 @@
 			<div style="overflow: hidden">
 				<p class="lead mt-4" style="float: left">Have An Account? <a href="/users/login">Login</a></p>
 				<p class="lead mt-4" style="float: right"><a href="/">Back to Homepage</a></p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- start new session modal -->
+<div class="modal fade" id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
+			</div>
+			<div class="modal-body"><h5>You are currently running a live session</h5></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary btn-lg" data-bs-dismiss="modal">OK</button>
 			</div>
 		</div>
 	</div>

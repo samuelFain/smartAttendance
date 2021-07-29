@@ -9,7 +9,10 @@
 					<a class="nav-link" href="/dashboard">Dashboard </a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/dashboard/session">Session</a>
+					<a class="nav-link" role="button" href="#start-new-session-modal" data-bs-toggle="modal">Session</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/dashboard/participants">Manage participants</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#">Attendance log</a>
@@ -29,4 +32,21 @@
 </nav>
 <div class="jumbotron jumbotron-fluid text-center bg-light">
 	<h1 class="text-primary">Statistics</h1>
+</div>
+
+<!-- start new session modal -->
+<div class="modal fade" id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
+			</div>
+			<div class="modal-body"><h5>You are about to start a new session</h5></div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
+				<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
+				<a href="/dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
+			</div>
+		</div>
+	</div>
 </div>

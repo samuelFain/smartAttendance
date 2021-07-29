@@ -13,6 +13,11 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	participants: [{
+		type:mongoose.Schema.Types.ObjectID,
+		ref: 'Participant',
+		required: false
+	}],
 	date: {
 		type: Date,
 		default: Date.now,
