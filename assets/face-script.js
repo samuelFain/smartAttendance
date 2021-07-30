@@ -92,6 +92,9 @@ async function recognizeFaces() {
 			drawBox.draw(canvas);
 			if (result._distance > 0.4) {
 				run_toast('successfully_detected_toast', 'Hello ' + result._label);
+				if (detection_doc) {
+					detection_doc.successful += 1;
+				}
 			}
 		});
 	}, 100);

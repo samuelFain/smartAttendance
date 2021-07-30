@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const DetectionSchema = new mongoose.Schema({
-	detected: {
+	successful: {
 		type: Number,
 		required: true,
 		default: 0,

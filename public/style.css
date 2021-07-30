@@ -1,7 +1,21 @@
+/*-------------- Layout Page --------------*/
+
+html,
+body {
+	margin: 0px;
+	height: 100%;
+}
+
+body {
+	background-image: url('/icons/background.png') !important;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 100% 30%;
+}
 /*-------------- Welcome Page --------------*/
 
 #Welcome-page-muted {
-	color: #37b392 !important;
+	color: #18bc9c !important;
 }
 
 /*-------------- Position --------------*/

@@ -59,6 +59,10 @@ app.use(express.static(path.join(__dirname, 'assets')));
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 app.use('/dashboard', require('./routes/dashboard'));
+// app.get('*', function (req, res) {
+// 	res.render('404');
+// 	res.status(404);
+// });
 
 const PORT = process.env.PORT || 3000;
 

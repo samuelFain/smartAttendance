@@ -18,7 +18,7 @@
 					<a class="nav-link" href="dashboard/participants">Manage participants</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Attendance log</a>
+					<a class="nav-link" href="dashboard/attendance_log">Attendance log</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="dashboard/statistics">Statistics</a>
@@ -47,7 +47,7 @@
 				</h1>
 				<h5 class="pt-4 text-primary">Current attendance statistics</h5>
 				<div class="d-grid gap-2 d-md-block">
-					<a href="/users/register" class="btn btn-primary btn-lg btn-block mt-5 text-success">continue to Statistics</a>
+					<a href="/dashboard/statistics" class="btn btn-primary btn-lg btn-block mt-5 text-success">continue to Statistics</a>
 				</div>
 			</div>
 		</div>
@@ -69,7 +69,8 @@
 				</h1>
 				<h5 class="pt-4 text-primary">Start new session</h5>
 				<div class="d-grid gap-2 d-md-block">
-					<a href="/dashboard/session" class="btn btn-primary btn-lg btn-block mt-5 text-success">continue to start new session</a>
+					<!-- <a href="/dashboard/session" class="btn btn-primary btn-lg btn-block mt-5 text-success">continue to start new session</a> -->
+					<a class="btn btn-primary btn-lg btn-block mt-5 text-success" role="button" href="#start-new-session-modal" data-bs-toggle="modal">Start a new session</a>
 				</div>
 			</div>
 		</div>
@@ -94,7 +95,7 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
 				<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
-				<a href="./session" class="btn btn-primary btn-lg" role="button">Continue</a>
+				<a href="dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
 			</div>
 		</div>
 	</div>

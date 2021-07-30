@@ -15,7 +15,7 @@
 					<a class="nav-link" href="./participants">Manage participants <i class="fas fa-map-pin"></i></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Attendance log</a>
+					<a class="nav-link" href="/dashboard/attendance_log">Attendance log</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="/dashboard/statistics">Statistics</a>
@@ -43,7 +43,7 @@
 				</h1>
 				<h5 class="pt-4 text-primary">Add new participant to your list</h5>
 				<div class="d-grid gap-2 d-md-block">
-					<button type="button" class="btn btn-primary btn-lg btn-block mt-5 text-success" data-bs-toggle="modal" data-bs-target="#add-participant-modal">Add Participant</button>
+					<button type="button" id="add-participant-btn" class="btn btn-primary btn-lg btn-block mt-5 text-success" data-bs-toggle="modal" data-bs-target="#add-participant-modal">Add Participant</button>
 				</div>
 			</div>
 		</div>
@@ -70,31 +70,41 @@
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<form>
+				<%- include ("./partials/messages"); %>
+				<form action="/dashboard/participants/add" method="POST">
+					
 					<div class="mb-3">
-						<label for="recipient-name" class="col-form-label">first name:</label>
-						<input type="text" class="form-control" id="recipient-name" />
+						<div class="form-group">
+						<label for="recipient-name"  class="col-form-label">first name:</label>
+						<input type="text" class="form-control" id="first_name" name="first_name" />
+						</div>
 					</div>
 					<div class="mb-3">
+						<div class="form-group">
 						<label for="recipient-name" class="col-form-label">last name:</label>
-						<input type="text" class="form-control" id="recipient-name" />
+						<input type="text" class="form-control" id="last_name" name="last_name" />
+						</div>
 					</div>
 					<div class="mb-3">
-						<label for="recipient-name" class="col-form-label">participant ID:</label>
-						<input type="text" class="form-control" id="recipient-name" />
+						<div class="form-group">
+						<label for="recipient-name" id="id" name="id" class="col-form-label">participant ID:</label>
+						<input type="text" class="form-control"  id="id" name="id" />
+						</div>
+					</div>
+				
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-lg btn-primary">Add</button>
 					</div>
 				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-lg btn-primary">Add</button>
-			</div>
 		</div>
 	</div>
 </div>
 
+<!-- See participant list -->
 <div class="modal fade" id="participant-list-modal" data-bs-keyboard="false" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title">Participant list</h5>
