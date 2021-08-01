@@ -1,29 +1,89 @@
 const express = require('express');
+const {createTinyFaceDetector, awaitMediaLoaded} = require('face-api.js');
 const router = express.Router();
 const Participant = require('../models/Participant');
+const User = require('../models/User');
 
+// FUNCTION: 'get_all_participants' | returns array of all participants belong to a specific user
+async function get_all_participants(user_id) {
+	let data = [];
+	try {
+		const user = await User.findById(user_id);
+		if (user) {
+			for (var i = 0; i < user.participants.length; i++) {
+				let obj = await Participant.findById(user.participants[i]);
+				data.push({first_name: obj.first_name, last_name: obj.last_name, id: obj.id, obj_id: obj._id});
+			}
+		}
+	} catch (err) {
+		console.log(err.message);
+	}
+	return data;
+}
+
+// add participant to user's participant list | POST /participants/add
 router.post('/add', (req, res) => {
 	const {first_name, last_name, id} = req.body;
-	let errors = [];
+	const user = req.user;
 
-	// Check required fields
-	if (!first_name || !last_name || !id) {
-		errors.push({msg: 'Please fill in all fields'});
-	}
+	User.findOne({_id: user.id}) //first, find current user
+		.then((user) => {
+			if (user) {
+				//then, search for the participant we want to add in db
+				Participant.findOne({id: id})
+					.then((participant) => {
+						//if participant already exits
+						//search him in user's participant list, if exists in list do nothing, if don't - add to list
+						if (participant) {
+							let found = false;
+							user.participants.forEach((elem) => {
+								if (String(elem) == String(participant._id)) {
+									found = true;
+									req.flash('error_msg', 'Participant already in your list');
+									res.redirect('/dashboard/participants');
+								}
+							});
+							if (!found) {
+								user.participants.push(participant);
+								user
+									.save()
+									.then((participant) => {
+										req.flash('success_msg', 'Participant added to your list');
+										res.redirect('/dashboard/participants');
+									})
+									.catch((err) => {
+										console.log(err.message);
+									});
+							}
+						} else {
+							//else, create participant and add it to user's participants list
+							const newParticipant = new Participant({
+								first_name,
+								last_name,
+								id,
+							});
+							newParticipant
+								.save()
+								.then((participant) => {
+									req.flash('success_msg', 'Participant added to your list');
+									res.redirect('/dashboard/participants');
+								})
+								.catch((err) => console.log(err));
 
-	if (errors.length > 0) {
-		res
-			.render('participants', {
-				errors,
-				first_name,
-				last_name,
-				id,
-			})
-			.then(() => {
-				console.log('hi');
-				document.getElementById('add-participant-btn').click();
-			});
-	}
+							user.participants.push(newParticipant);
+							user.save().catch((err) => {
+								console.log(err.message);
+							});
+						}
+					})
+					.catch((err) => {
+						console.log(err.message);
+					});
+			}
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
 });
 
 // show participants list | GET /participants/list
@@ -33,7 +93,13 @@ router.get('/list', (req, res) => {
 
 // participants page | GET /participants
 router.get('/', (req, res) => {
-	res.render('participants');
+	if (req.user.participants.length > 0) { //if user has participants in his list
+		get_all_participants(req.user.id).then((data) => {
+			res.render('participants', {user: req.user, participants: data});
+		});
+	} else {
+		res.render('participants', {user: req.user});
+	}
 });
 
 module.exports = router;

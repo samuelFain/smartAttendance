@@ -84,6 +84,7 @@ router.post('/register', (req, res) => {
 			}
 		});
 	}
+	
 });
 
 // Login Handle | POST /login

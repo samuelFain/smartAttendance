@@ -32,6 +32,7 @@
 </nav>
 <div class="jumbotron jumbotron-fluid text-center bg-light">
 	<h1 class="text-primary">Manage participants</h1>
+		<%- include ("./partials/messages"); %>
 </div>
 
 <div class="container-flex">
@@ -66,29 +67,27 @@
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Fill in new participant information</h5>
+				<h4 class="modal-title">Fill in new participant information</h4>
 				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<%- include ("./partials/messages"); %>
 				<form action="/dashboard/participants/add" method="POST">
-					
 					<div class="mb-3">
 						<div class="form-group">
 						<label for="recipient-name"  class="col-form-label">first name:</label>
-						<input type="text" class="form-control" id="first_name" name="first_name" />
+						<input type="text" class="form-control" id="first_name" name="first_name" required/>
 						</div>
 					</div>
 					<div class="mb-3">
 						<div class="form-group">
 						<label for="recipient-name" class="col-form-label">last name:</label>
-						<input type="text" class="form-control" id="last_name" name="last_name" />
+						<input type="text" class="form-control" id="last_name" name="last_name" required/>
 						</div>
 					</div>
 					<div class="mb-3">
 						<div class="form-group">
 						<label for="recipient-name" id="id" name="id" class="col-form-label">participant ID:</label>
-						<input type="text" class="form-control"  id="id" name="id" />
+						<input type="number" class="form-control" id="id" name="id" required/>
 						</div>
 					</div>
 				
@@ -107,16 +106,48 @@
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Participant list</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				<h4 class="modal-title">Participant list</h4>
+				<button type="button" class="btn btn-primary btn-md">
+					Total <span class="badge bg-info"><%=user.participants.length %></span>
+				  </button>
+				<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 			</div>
 			<div class="modal-body">
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
-				<br />
+				<table class="table table-hover text-center text-primary">
+					<thead>
+						<tr class="table-primary">
+							<th>First name</th>
+							<th>Last name</th>
+							<th>ID</th>
+							<th></th>
+						  </tr>
+						  <tbody>
+							<% for (var i = 0; i < user.participants.length; i++) { %>
+								<tr>
+									<td class='align-middle'><%= participants[i].first_name %></td>
+									<td class='align-middle'><%= participants[i].last_name %></td>
+									<td class='align-middle'><%= participants[i].id %></td>
+									<td class='align-middle'>
+										<!-- <a href="#" class="btn btn-success text-primary" role="button">View Statistics</a>
+										<a href="#" class="btn btn-warning text-primary" role="button">Remove</a> -->
+										<div class="dropdown">
+											<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+											  Available actions
+											</button>
+											<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+											  <li><a class="dropdown-item " href="#">View participant's Statistics</a></li>
+											  <li><a class="dropdown-item" href="#">Go to statics page</a></li>
+											  <li><a class="dropdown-item" href="#">Help</a></li>
+											  <li><hr class="dropdown-divider"></li>
+											  <li><a class="dropdown-item" href="#">Remove</a></li>
+											</ul>
+										  </div>
+									</td>
+								  </tr>    
+							<% } %>
+						  </tbody>
+					</thead>
+				</table>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>

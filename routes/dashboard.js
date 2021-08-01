@@ -5,7 +5,7 @@ const passport = require('passport');
 const {ensureAuthenticated} = require('../config/auth');
 
 //handle /participants endpoints
-router.use('/participants', require('../routes/participants'));
+router.use('/participants' ,require('../routes/participants'));
 
 router.get('/session', (req, res) => {
 	res.render('session');
@@ -30,6 +30,7 @@ router.get('/attendance_log', (req, res) => {
 router.get('/', ensureAuthenticated, (req, res) => {
 	res.render('dashboard', {
 		name: req.user.name,
+		userId: req.user.id,
 	});
 });
 

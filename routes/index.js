@@ -17,7 +17,6 @@ router.get('/', (req, res) => {
 // webcam demo page | Get /demo
 router.get('/demo', (req, res) => {
 	res.render('demo');
-	
 });
 
 module.exports = router;
