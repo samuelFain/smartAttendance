@@ -9,17 +9,18 @@ const SessionSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now,
 	},
-    user : {
-        type:mongoose.Schema.Types.ObjectID,
+	user: {
+		type: mongoose.Schema.Types.ObjectID,
 		ref: 'Participant',
-        required: true
-    },
-    participants: [{
-		type:mongoose.Schema.Types.ObjectID,
-		ref: 'Participant',
-		required: false
-	}],
-    
+		required: true,
+	},
+	participants: [
+		{
+			type: mongoose.Schema.Types.ObjectID,
+			ref: 'Participant',
+			required: false,
+		},
+	],
 });
 
 const Session = mongoose.model('Session', SessionSchema);

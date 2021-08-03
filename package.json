@@ -28,7 +28,9 @@
     "express-ejs-layouts": "^2.5.0",
     "express-session": "^1.17.1",
     "face-api.js": "^0.22.2",
+    "method-override": "^3.0.0",
     "mongoose": "^5.12.9",
+    "mongoose-delete": "^0.5.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
   },

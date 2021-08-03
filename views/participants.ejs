@@ -107,8 +107,8 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4 class="modal-title">Participant list</h4>
-				<button type="button" class="btn btn-primary btn-md">
-					Total <span class="badge bg-info"><%=user.participants.length %></span>
+				<button type="button" class="btn btn-light text-center align-middle"><h4>
+					Total <span class="badge bg-info"><%= user.participants.length %></span></h4>
 				  </button>
 				<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 			</div>
@@ -116,6 +116,7 @@
 				<table class="table table-hover text-center text-primary">
 					<thead>
 						<tr class="table-primary">
+							<th>#</th>
 							<th>First name</th>
 							<th>Last name</th>
 							<th>ID</th>
@@ -124,6 +125,7 @@
 						  <tbody>
 							<% for (var i = 0; i < user.participants.length; i++) { %>
 								<tr>
+									<td class='align-middle'><%= i+1 %></td>
 									<td class='align-middle'><%= participants[i].first_name %></td>
 									<td class='align-middle'><%= participants[i].last_name %></td>
 									<td class='align-middle'><%= participants[i].id %></td>
@@ -135,11 +137,16 @@
 											  Available actions
 											</button>
 											<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+											  <li><a class="dropdown-item " href="#">Edit participant info</a></li>
 											  <li><a class="dropdown-item " href="#">View participant's Statistics</a></li>
-											  <li><a class="dropdown-item" href="#">Go to statics page</a></li>
-											  <li><a class="dropdown-item" href="#">Help</a></li>
+											  <li><a class="dropdown-item" href="/dashboard/statistics">Go to statics page</a></li>
 											  <li><hr class="dropdown-divider"></li>
-											  <li><a class="dropdown-item" href="#">Remove</a></li>
+											  <li>
+												<form action="/dashboard/participants/<%=participants[i].obj_id%>" method="POST">
+													<input type="hidden" name="_method" value="DELETE">
+													<button type='submit' class="dropdown-item" id="remove-participant-action">Remove participant</button>
+												</form>
+												</li>
 											</ul>
 										  </div>
 									</td>

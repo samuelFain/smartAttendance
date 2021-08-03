@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-
+const methodOverride = require('method-override');
 const app = express();
 
 // Passport config
@@ -26,6 +26,16 @@ app.set('view engine', 'ejs');
 
 // Body parser
 app.use(express.urlencoded({extended: false}));
+
+app.use(
+	methodOverride(function (req, res) {
+		if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+			let method = req.body._method;
+			delete req.body._method;
+			return method;
+		}
+	})
+);
 
 // Express Session
 app.use(

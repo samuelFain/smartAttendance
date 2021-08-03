@@ -56,3 +56,9 @@ canvas {
 	left: 50%;
 	transform: translatex(-50%);
 }
+
+/* Manage Participants page */
+#remove-participant-action:hover,
+#remove-participant-action:focus {
+	background-color: #e74c3c !important;
+}

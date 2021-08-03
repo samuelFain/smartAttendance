@@ -1,3 +1,4 @@
+const {promiseImpl} = require('ejs');
 const express = require('express');
 const {createTinyFaceDetector, awaitMediaLoaded} = require('face-api.js');
 const router = express.Router();
@@ -19,6 +20,26 @@ async function get_all_participants(user_id) {
 		console.log(err.message);
 	}
 	return data;
+}
+
+// FUNCTION: 'delete_participant' | remove specific user from user's list
+async function delete_participant(user_id, participants_id) {
+	// console.log(participants_id);
+	try {
+		const user = await User.findById(user_id);
+		// console.log(user);
+		for (let i = 0; i < user.participants.length; i++) {
+			console.log(user.participants[i], participants_id);
+			if (user.participants[i] == participants_id) {
+				user.participants.splice(i, 1);
+				i--;
+				console.log('found');
+			}
+		}
+		return user.save();
+	} catch (err) {
+		console.log(err.message);
+	}
 }
 
 // add participant to user's participant list | POST /participants/add
@@ -91,9 +112,23 @@ router.get('/list', (req, res) => {
 	res.render('participants');
 });
 
+// remove participant from user's participant list | DELETE /participants/:id
+router.delete('/:id', (req, res) => {
+	let promise = delete_participant(req.user, req.params.id);
+	promise
+		.then((p) => {
+			req.flash('success_msg', 'Participant successfully removed from your list');
+			res.redirect('/dashboard/participants');
+		})
+		.catch((err) => {
+			console.log(err.message);
+		});
+});
+
 // participants page | GET /participants
 router.get('/', (req, res) => {
-	if (req.user.participants.length > 0) { //if user has participants in his list
+	if (req.user.participants.length > 0) {
+		//if user has participants in his list
 		get_all_participants(req.user.id).then((data) => {
 			res.render('participants', {user: req.user, participants: data});
 		});
