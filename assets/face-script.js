@@ -1,5 +1,24 @@
 const video = document.querySelector('#videoInput');
 
+let res = []; //array of detected faces, will be sent to server on 'submit'
+
+const form = document.getElementById('submit-session');
+
+// form 'submit' listener - send result as json object to server using fetch api
+form.addEventListener('submit', function (e) {
+	e.preventDefault();
+
+	const resp = fetch('/dashboard/session/create', {
+		method: 'POST',
+		credentials: 'include', 
+		mode: 'cors',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(res),
+	});
+});
+
 //Toast (messages) option config
 var option = {
 	animation: true,
@@ -32,7 +51,6 @@ function parse_result(res_string) {
 	// return res_string.substring(len)
 }
 
-//
 Promise.all([faceapi.nets.faceRecognitionNet.loadFromUri('/models'), faceapi.nets.faceLandmark68Net.loadFromUri('/models'), faceapi.nets.ssdMobilenetv1.loadFromUri('/models')]).then(start);
 
 function start() {
@@ -92,9 +110,9 @@ async function recognizeFaces() {
 			drawBox.draw(canvas);
 			if (result._distance > 0.4) {
 				run_toast('successfully_detected_toast', 'Hello ' + result._label);
-				if (detection_doc) {
-					detection_doc.successful += 1;
-				}
+				res.push(result._label);
+				// console.log(res);
+				// console.log(result.toString());
 			}
 		});
 	}, 100);

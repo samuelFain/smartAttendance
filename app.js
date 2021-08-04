@@ -53,6 +53,9 @@ app.use(passport.session());
 // Connect flash
 app.use(flash());
 
+// decode json
+app.use(express.json());
+
 // Global vars
 app.use((req, res, next) => {
 	res.locals.success_msg = req.flash('success_msg');

@@ -5,11 +5,10 @@ const passport = require('passport');
 const {ensureAuthenticated} = require('../config/auth');
 
 //handle /participants endpoints
-router.use('/participants' ,require('../routes/participants'));
+router.use('/participants', require('../routes/participants'));
 
-router.get('/session', (req, res) => {
-	res.render('session');
-});
+// handle /sessions endpoints
+router.use('/session', require('../routes/session'));
 
 // About page | GET /about
 router.get('/about', (req, res) => {

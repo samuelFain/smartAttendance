@@ -1,6 +1,6 @@
 const {promiseImpl} = require('ejs');
 const express = require('express');
-const {createTinyFaceDetector, awaitMediaLoaded} = require('face-api.js');
+// const {createTinyFaceDetector, awaitMediaLoaded} = require('face-api.js');
 const router = express.Router();
 const Participant = require('../models/Participant');
 const User = require('../models/User');
@@ -24,10 +24,8 @@ async function get_all_participants(user_id) {
 
 // FUNCTION: 'delete_participant' | remove specific user from user's list
 async function delete_participant(user_id, participants_id) {
-	// console.log(participants_id);
 	try {
 		const user = await User.findById(user_id);
-		// console.log(user);
 		for (let i = 0; i < user.participants.length; i++) {
 			console.log(user.participants[i], participants_id);
 			if (user.participants[i] == participants_id) {

@@ -82,7 +82,10 @@
 				</div>
 			</div>
 			<div style="overflow: hidden">
-				<p class="lead mt-4" style="float: left">Have An Account? <a href="/users/login">Login</a></p>
+				<!-- <p class="lead mt-4" style="float: left">Have An Account? <a href="/users/login">Login</a></p> -->
+				<form id='submit-session' action="/dashboard/session/create>" method="POST">
+					<button type='submit' class="btn btn-success" id="btn-finish-session">Finish session</button>
+				</form>
 				<p class="lead mt-4" style="float: right"><a href="/">Back to Homepage</a></p>
 			</div>
 		</div>

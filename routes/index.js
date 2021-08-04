@@ -14,6 +14,12 @@ router.get('/', (req, res) => {
 // 	});
 // });
 
+// router.get('/dashboard', (req, res) => {
+// 	res.render('dashboard', {
+// 		name: req.user.name,
+// 	});
+// });
+
 // webcam demo page | Get /demo
 router.get('/demo', (req, res) => {
 	res.render('demo');
