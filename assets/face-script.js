@@ -10,7 +10,7 @@ form.addEventListener('submit', function (e) {
 
 	const resp = fetch('/dashboard/session/create', {
 		method: 'POST',
-		credentials: 'include', 
+		credentials: 'include',
 		mode: 'cors',
 		headers: {
 			'Content-Type': 'application/json',
@@ -44,11 +44,6 @@ function run_toast(toast_id, msg) {
 			}
 		}
 	});
-}
-
-function parse_result(res_string) {
-	let len = rest_string.length;
-	// return res_string.substring(len)
 }
 
 Promise.all([faceapi.nets.faceRecognitionNet.loadFromUri('/models'), faceapi.nets.faceLandmark68Net.loadFromUri('/models'), faceapi.nets.ssdMobilenetv1.loadFromUri('/models')]).then(start);
@@ -85,7 +80,7 @@ async function recognizeFaces() {
 	// video.addEventListener('play', () => {
 	console.log('playing');
 
-	const canvas = faceapi.createCanvasFromMedia(video);
+	const canvas = await faceapi.createCanvasFromMedia(video);
 	document.body.querySelector('#faceVideoInput').append(canvas);
 
 	const displaySize = {width: video.width, height: video.height};
@@ -95,7 +90,7 @@ async function recognizeFaces() {
 	setInterval(async () => {
 		const detections = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors();
 
-		const resizedDetections = faceapi.resizeResults(detections, displaySize);
+		const resizedDetections = await faceapi.resizeResults(detections, displaySize);
 
 		//clear canvas after every recognition
 		canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);

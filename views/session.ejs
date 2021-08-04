@@ -84,9 +84,10 @@
 			<div style="overflow: hidden">
 				<!-- <p class="lead mt-4" style="float: left">Have An Account? <a href="/users/login">Login</a></p> -->
 				<form id='submit-session' action="/dashboard/session/create>" method="POST">
-					<button type='submit' class="btn btn-success" id="btn-finish-session">Finish session</button>
+					<button type='submit' class="btn btn-success btn-lg" id="btn-finish-session">Finish session</button>
+					<a type="button" href="/dashboard" class="btn btn-warning btn-lg" style="float: right">Cancel session</a>
 				</form>
-				<p class="lead mt-4" style="float: right"><a href="/">Back to Homepage</a></p>
+				
 			</div>
 		</div>
 	</div>
@@ -106,28 +107,6 @@
 		</div>
 	</div>
 </div>
-
-<!-- <script>    DELETE LATER
-	var option = {
-		animation: true,
-		delay: 10000,
-	};
-
-	var toastElList = [].slice.call(document.querySelectorAll('.toast'));
-	var toastList = toastElList.map(function (toastEl) {
-		return new bootstrap.Toast(toastEl, option);
-	});
-
-	function run_toast(toast_id) {
-		toastList.forEach((element) => {
-			if (element._element.id == toast_id) {
-				element.show();
-			}
-		});
-	}
-
-	run_toast('loading_toast');
-</script> -->
 
 <script defer src="/face-api.min.js"></script>
 <script defer src="/face-script.js"></script>
