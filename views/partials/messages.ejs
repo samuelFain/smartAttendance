@@ -2,7 +2,7 @@
     <% errors.forEach(function(error) { %> 
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <i class="fas fa-exclamation-triangle"></i><strong>  Heads up! </strong><%= error.msg %>
-            <button type="button" class="close btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div> 
@@ -12,7 +12,7 @@
 <% if(success_msg != '') { %>
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     <i class="fas fa-check-circle"></i><strong>  Success! </strong><%= success_msg %>
-    <button type="button" class="close btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div> 
@@ -21,7 +21,7 @@
 <% if(error_msg != '') { %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <i class="fas fa-exclamation-triangle"></i><strong>  Oh Oh! </strong> <%= error_msg %>
-    <button type="button" class="close btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
   </div> 
@@ -30,7 +30,7 @@
 <% if(error != '') { %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <i class="fas fa-exclamation-triangle"></i><strong>  Oh Oh! </strong><%= error %>
-    <button type="button" class="close btn-close" data-bs-dismiss="alert" aria-label="Close">
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
     </button>
   </div>

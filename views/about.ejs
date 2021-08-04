@@ -30,7 +30,7 @@
 		</div>
 	</div>
 </nav>
-<div class="jumbotron jumbotron-fluid text-center bg-light">
+<div class="jumbotron jumbotron-fluid text-center bg-light pt-2 pb-2">
 	<h1 class="text-primary">About</h1>
 </div>
 
@@ -38,25 +38,21 @@
 	<div class="col-md-4 m-2">
 		<div class="card card-body">
 
-<h5 class="text-primary text-wrap fs-3">
+<p class="text-primary text-wrap ">
 	"smartAttendance" is a self learning project, create by a junior fullstack developer to explore the possibilities of AI integration in web apps. <br /><br />
 	Technologies used in this project: <br />
 	<ul>
-		<br>
+		
 		<li>Back-End:  <img src="/icons/nodejs.png" height="45" width="45" /></li>
-		<br>
 		<li>Front-End: <img src="/icons/html-5.png" height="30" width="30" /> <img src="/icons/css-3.png" height="30" width="30" /> <img src="/icons/ejs.png" height="30" width="30" /> <img src="/icons/bootstrap.png" height="35" width="50" /></li>
-		<br>
 		<li>DataBase:  <img src="/icons/mongo.png" height="40" width="80" /></li>
-		<br>
 		<li>
 			AI integration: JavaScript API implemented on top of the tensorflow.js core API <br />
 			<a href="https://justadudewhohacks.github.io/face-api.js/docs/index.html">github.io/face-api.js</a>
 		</li>
 	</ul>
-</h5>
-<row><br><br><br></row>
-<h5 class="text-center">Full project documentation can be found on my <a href="https://github.com/samuelFain/smartAttendance">github</a></h5>
+</p>
+<p class="text-center">Full project documentation can be found on my <a href="https://github.com/samuelFain/smartAttendance">github</a></p>
 </div>
 </div>
 
@@ -73,10 +69,10 @@
 				<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your email" />
 			</div>
 			<div class="mb-3">
-				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your message" rows="3"></textarea>
+				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your message" rows="5"></textarea>
 			</div>
 			<div class="d-grid d-md-block">
-				<button type="submit" class="btn btn-primary text-success btn-lg">Send</button>
+				<button type="submit" class="btn btn-primary text-success btn-md">Send</button>
 			</div>
 		</div>
 	</div>
@@ -86,7 +82,7 @@
 </div>
 
 <h5 class="pt-4 text-primary text-center">
-	<img src="/icons/ai.png" height="130" width="130" />
+	<img src="/icons/ai.png" height="100" width="100" />
 </h5>
 
 <!-- start new session modal -->
@@ -95,12 +91,13 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body"><h5>You are about to start a new session</h5></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
+			<div class="modal-footer justify-content-between">
+				<button type="button" class="btn btn-danger btn-md" data-bs-dismiss="modal">Close</button>
 				<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
-				<a href="/dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
+				<a href="dashboard/session" class="btn btn-primary btn-md" role="button">Continue</a>
 			</div>
 		</div>
 	</div>

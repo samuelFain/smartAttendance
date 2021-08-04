@@ -44,8 +44,7 @@ router.post('/create', (req, res) => {
 	new_session
 		.then((p) => {
 			// req.flash('success_msg', 'Session created successfully');
-			console.log('then!');
-			res.redirect('/dashboard'); //todo: redirection problem
+			// res.render('dashboard'); //todo: redirection problem
 		})
 		.catch((err) => {
 			console.log(err.message);

@@ -30,7 +30,7 @@
 		</div>
 	</div>
 </nav>
-<div class="jumbotron jumbotron-fluid text-center bg-light">
+<div class="jumbotron jumbotron-fluid text-center bg-light pt-2 pb-2">
 	<h1 class="text-primary">Manage participants</h1>
 		<%- include ("./partials/messages"); %>
 </div>
@@ -105,17 +105,19 @@
 <div class="modal fade" id="participant-list-modal" data-bs-keyboard="false" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header position-relative">
 				<h4 class="modal-title">Participant list</h4>
-				<button type="button" class="btn btn-light text-center align-middle"><h4>
-					Total <span class="badge bg-info"><%= user.participants.length %></span></h4>
-				  </button>
+				<!-- <button type="button" class="btn btn-light text-center align-middle position-absolute top-50 start-50 translate-middle">
+					Total <span class="badge bg-info"><%= user.participants.length %></span>
+				  </button> -->
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				
 				<!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 			</div>
 			<div class="modal-body">
 				<table class="table table-hover text-center text-primary">
 					<thead>
-						<tr class="table-primary">
+						<tr class="table-primary text-primary">
 							<th>#</th>
 							<th>First name</th>
 							<th>Last name</th>
@@ -156,25 +158,29 @@
 					</thead>
 				</table>
 			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
+			<div class="modal-footer justify-content-between">
+				<button type="button" class="btn btn-light btn-lg text-center btn-block ml-1">
+					Total <span class="badge bg-info"><%= user.participants.length %></span>
+				  </button>
+				<button type="button" class="btn btn-lg btn-danger " data-bs-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- start new session modal -->
-<div class="modal fade" id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
+<div class="modal fade " id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body"><h5>You are about to start a new session</h5></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
+			<div class="modal-footer justify-content-between">
+				<button type="button" class="btn btn-danger btn-md" data-bs-dismiss="modal">Close</button>
 				<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
-				<a href="/dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
+				<a href="dashboard/session" class="btn btn-primary btn-md" role="button">Continue</a>
 			</div>
 		</div>
 	</div>

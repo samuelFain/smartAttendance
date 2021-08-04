@@ -4,11 +4,15 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const {ensureAuthenticated} = require('../config/auth');
 
+
 //handle /participants endpoints
 router.use('/participants', require('../routes/participants'));
 
 // handle /sessions endpoints
 router.use('/session', require('../routes/session'));
+
+//handle /attendance_log endpoints
+router.use('/attendance_log', require('../routes/attendance_log'))
 
 // About page | GET /about
 router.get('/about', (req, res) => {
@@ -18,11 +22,6 @@ router.get('/about', (req, res) => {
 // Statistics page | GET /about
 router.get('/statistics', (req, res) => {
 	res.render('Statistics');
-});
-
-// Attendance log page | GET /attendance_log
-router.get('/attendance_log', (req, res) => {
-	res.render('attendance_log');
 });
 
 // Dashboard page | Get /dashboard

@@ -30,22 +30,41 @@
 		</div>
 	</div>
 </nav>
-<div class="jumbotron jumbotron-fluid text-center bg-light">
+<div class="jumbotron jumbotron-fluid text-center bg-light pt-2 pb-2">
 	<h1 class="text-primary">Attendance Log</h1>
 </div>
 
-<!-- start new session modal -->
-<div class="modal fade" id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
+<div class="container mt-5">
+	<div class="accordion" id="accordion">
+		<% for (var i = 0; i < sessions.length; i++) { %>
+		<div class="accordion-item">
+			<h2 class="accordion-header" id="heading<%=i%>">
+				<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<%=i%>" aria-expanded="true" aria-controls="collapse<%=i%>"><%=sessions[i].date%></button>
+			</h2>
+			<div id="collapse<%=i%>" class="accordion-collapse collapse show" aria-labelledby="heading<%=i%>" data-bs-parent="#accordion">
+				<div class="accordion-body">
+					<strong><%=sessions[i].participants[0].first_name%></strong><br>
+				</div>
 			</div>
-			<div class="modal-body"><h5>You are about to start a new session</h5></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
-				<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
-				<a href="/dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
+		</div>
+		<% } %>
+	</div>
+</div>
+
+	<!-- start new session modal -->
+	<div class="modal fade" id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body"><h5>You are about to start a new session</h5></div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-danger btn-md" data-bs-dismiss="modal">Close</button>
+					<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
+					<a href="dashboard/session" class="btn btn-primary btn-md" role="button">Continue</a>
+				</div>
 			</div>
 		</div>
 	</div>

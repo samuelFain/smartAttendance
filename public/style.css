@@ -4,12 +4,14 @@ html,
 body {
 	margin: 0px;
 	height: 100%;
+	font-family: 'Poppins', sans-serif;
 }
 
 body {
 	background-image: url('/icons/background.png') !important;
 	background-repeat: no-repeat;
 	background-position: bottom;
+	background-attachment: fixed;
 	background-size: 100% 30%;
 }
 /*-------------- Welcome Page --------------*/
@@ -39,7 +41,7 @@ canvas {
 	/* justify-content: center; */
 }
 
-/*-------------- Elements --------------*/
+/*-------------- Bootstrap Components --------------*/
 
 .hover-card {
 	align-items: center;
@@ -57,8 +59,15 @@ canvas {
 	transform: translatex(-50%);
 }
 
+.table-hover tbody tr:hover td {
+	background-color: #18bc9c;
+}
+
+
+
 /* Manage Participants page */
 #remove-participant-action:hover,
 #remove-participant-action:focus {
 	background-color: #e74c3c !important;
 }
+
