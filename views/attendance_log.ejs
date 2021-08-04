@@ -43,7 +43,10 @@
 			</h2>
 			<div id="collapse<%=i%>" class="accordion-collapse collapse show" aria-labelledby="heading<%=i%>" data-bs-parent="#accordion">
 				<div class="accordion-body">
-					<strong><%=sessions[i].participants[0].first_name%></strong><br>
+					<strong>Participants in this session:</strong><br>
+					<% sessions[i].participants.forEach((elem)=>{ %>
+						<p> <%= elem.first_name %> <%= elem.last_name %> (<%= elem.id %>)</p><br>
+					<% }) %>
 				</div>
 			</div>
 		</div>
