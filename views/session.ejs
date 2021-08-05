@@ -39,49 +39,16 @@
 
 <div class="top-padding"></div>
 <div class="row justify-content-center">
-	<div class="col-md-8 m-auto">
+	<div class="col-md-6 d-flex justify-content-center">
 		<div class="card card-body">
 			<div class="row justify-content-center">
-				<div class="col-md-6">
-					<div class="d-flex justify-content-center">
-						<div id="faceVideoInput" class="">
-							<video id="videoInput" width="720" height="550"></video>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="toast-container">
-						<div class="toast" id="loading_toast" role="alert" aria-live="assertive" aria-atomic="true">
-							<div class="toast-header">
-								<strong class="mr-auto">Update</strong>
-								<button type="button" class="ml-2 mb-1 close" data-bs-dismiss="toast" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="toast-body">Loading Profiles...</div>
-						</div>
-						<div class="toast" id="facesLoaded_toast" role="alert" aria-live="assertive" aria-atomic="true">
-							<div class="toast-header">
-								<strong class="mr-auto">Update</strong>
-								<button type="button" class="ml-2 mb-1 close" data-bs-dismiss="toast" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="toast-body">All profiles has been loaded, ready to start</div>
-						</div>
-						<div class="toast" id="successfully_detected_toast" role="alert" aria-live="assertive" aria-atomic="true">
-							<div class="toast-header">
-								<strong class="mr-auto">Face Detected!</strong>
-								<button type="button" class="ml-2 mb-1 close" data-bs-dismiss="toast" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="toast-body"></div>
-						</div>
+				<div class="col">
+					<div id="faceVideoInput" class="d-flex justify-content-center">
+						<video id="videoInput" width="920" height="550"></video>
 					</div>
 				</div>
 			</div>
-			<div style="overflow: hidden">
+			<div class="mt-5" style="overflow: hidden">
 				<!-- <p class="lead mt-4" style="float: left">Have An Account? <a href="/users/login">Login</a></p> -->
 				<form id='submit-session' action="/dashboard/session/create" method="POST">
 					<button type='submit' class="btn btn-success btn-lg" id="btn-finish-session">Finish session</button>
@@ -91,6 +58,32 @@
 			</div>
 		</div>
 	</div>
+		<div class="col-md-2 d-flex justify-content-start">
+					<div class="toast-container">
+						<div class="toast" id="loading_toast" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+								<strong class="me-auto">Update</strong>
+								<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+							</div>
+							<div class="toast-body">Loading Profiles...</div>
+						</div>
+						<div class="toast" id="facesLoaded_toast" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+								<strong class="me-auto">Update</strong>
+								<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+							</div>
+							<div class="toast-body">All profiles has been loaded, ready to start</div>
+						</div>
+						<div class="toast" id="successfully_detected_toast" role="alert" aria-live="assertive" aria-atomic="true">
+							<div class="toast-header">
+								<strong class="me-auto">Face Detected!</strong>
+								<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+							</div>
+							<div class="toast-body"></div>
+						</div>
+					</div>
+		</div>
+
 </div>
 
 <!-- start new session modal -->
@@ -107,8 +100,6 @@
 		</div>
 	</div>
 </div>
-
-
 
 <script defer src="/face-api.min.js"></script>
 <script defer src="/face-script.js"></script>

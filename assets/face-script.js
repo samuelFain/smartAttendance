@@ -51,7 +51,7 @@ function start() {
 	run_toast('loading_toast', '');
 	console.log('Models Loaded');
 
-	// connect webcam to video element
+	//connect webcam to video element
 	// navigator.mediaDevices.getUserMedia(
 	// 	//added mediaDevices
 	// 	{video: {}},
@@ -61,10 +61,28 @@ function start() {
 
 	if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 		navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
+			var video = document.querySelector('video');
 			video.srcObject = stream;
-			video.play();
+			video.onloadedmetadata = function (e) {
+				video.play();
+			};
 		});
 	}
+
+	// navigator.mediaDevices
+	// 	.getUserMedia({audio: true, video: true})
+	// 	.then(function (stream) {
+	// 		var video = document.querySelector('video');
+	// 		if ('srcObject' in video) {
+	// 			video.srcObject = stream;
+	// 		} else {
+	// 			video.src = window.URL.createObjectURL(stream);
+	// 		}
+	// 		video.onloadedmetadata = function (e) {
+	// 			video.play();
+	// 		};
+	// 	})
+	// 	.catch(function (err) {});
 
 	recognizeFaces();
 	// console.log('finished ');
@@ -80,10 +98,11 @@ async function recognizeFaces() {
 	console.log('playing');
 
 	const canvas = await faceapi.createCanvasFromMedia(video);
+
 	document.body.querySelector('#faceVideoInput').append(canvas);
 
 	const displaySize = {width: video.width, height: video.height};
-	faceapi.matchDimensions(canvas, displaySize);
+	await faceapi.matchDimensions(canvas, displaySize);
 
 	//detections intervals
 	setInterval(async () => {

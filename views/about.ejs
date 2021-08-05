@@ -34,7 +34,7 @@
 	<h1 class="text-primary">About</h1>
 </div>
 
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
 	<div class="col-md-4 m-2">
 		<div class="card card-body">
 
@@ -61,7 +61,6 @@
 		<div class="card card-body">
 			<h2 class="text-center mb-3"> Contact me</h2>
 			<%- include ("./partials/messages"); %>
-
 			<div class="mb-3">
 				<input class="form-control" type="text" placeholder="Your Name" id="exampleFormControlTextarea1"></input>
 			</div>
@@ -69,7 +68,7 @@
 				<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your email" />
 			</div>
 			<div class="mb-3">
-				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your message" rows="5"></textarea>
+				<textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your message" rows="4"></textarea>
 			</div>
 			<div class="d-grid d-md-block">
 				<button type="submit" class="btn btn-primary text-success btn-md">Send</button>
@@ -95,9 +94,8 @@
 			</div>
 			<div class="modal-body"><h5>You are about to start a new session</h5></div>
 			<div class="modal-footer justify-content-between">
-				<button type="button" class="btn btn-danger btn-md" data-bs-dismiss="modal">Close</button>
-				<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
-				<a href="dashboard/session" class="btn btn-primary btn-md" role="button">Continue</a>
+				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
+				<a href="dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
 			</div>
 		</div>
 	</div>

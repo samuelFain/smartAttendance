@@ -35,7 +35,7 @@
 </div>
 
 <div class="container mt-5">
-	<div class="accordion" id="accordion">
+	<div class="accordion " id="accordion">
 		<% for (var i = 0; i < sessions.length; i++) { %>
 		<div class="accordion-item">
 			<h2 class="accordion-header" id="heading<%=i%>">
@@ -64,9 +64,8 @@
 				</div>
 				<div class="modal-body"><h5>You are about to start a new session</h5></div>
 				<div class="modal-footer justify-content-between">
-					<button type="button" class="btn btn-danger btn-md" data-bs-dismiss="modal">Close</button>
-					<!-- <button type="button" class="btn btn-primary btn-lg">Continue</button> -->
-					<a href="dashboard/session" class="btn btn-primary btn-md" role="button">Continue</a>
+					<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
+					<a href="dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
 				</div>
 			</div>
 		</div>

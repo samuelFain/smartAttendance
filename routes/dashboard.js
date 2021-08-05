@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const {ensureAuthenticated} = require('../config/auth');
 
-
 //handle /participants endpoints
 router.use('/participants', require('../routes/participants'));
 
@@ -12,7 +11,7 @@ router.use('/participants', require('../routes/participants'));
 router.use('/session', require('../routes/session'));
 
 //handle /attendance_log endpoints
-router.use('/attendance_log', require('../routes/attendance_log'))
+router.use('/attendance_log', require('../routes/attendance_log'));
 
 // About page | GET /about
 router.get('/about', (req, res) => {

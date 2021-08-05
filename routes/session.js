@@ -3,6 +3,7 @@ const router = express.Router();
 const Participant = require('../models/Participant');
 const User = require('../models/User');
 const Session = require('../models/Session');
+const Detection = require('../models/Detection');
 
 // FUNCTION: 'create_session' | create new session
 async function create_session(user_id, detected_names) {
@@ -26,6 +27,27 @@ async function create_session(user_id, detected_names) {
 	}
 }
 
+// FUNCTION: 'update_successful_detections' | update successful detections in DB
+async function update_successful_detections(number_to_add) {
+	try {
+		const detection = await Detection.findById('61028e82069fce3023aead31');
+		const curr_successful = detection.successful;
+		if (detection) {
+			let new_successful = curr_successful + number_to_add;
+			Detection.findOneAndUpdate({}, {successful: new_successful}, {new: true}, (err, data) => {
+				if (err) {
+					console.log(err);
+				} else {
+					console.log(data);
+				}
+			});
+			return detection.successful;
+		}
+	} catch (err) {
+		console.log(err.message);
+	}
+}
+
 // FUNCTION: 'detected_names_reduction' |  detected names array duplicates reduction
 function detected_names_reduction(detected_names) {
 	let new_array = [];
@@ -42,9 +64,8 @@ router.post('/create', (req, res) => {
 	const detected_names = detected_names_reduction(req.body);
 	let new_session = create_session(req.session.passport.user, detected_names);
 	new_session
-		.then((p) => {
-			// req.flash('success_msg', 'Session created successfully');
-			// res.render('dashboard'); //todo: redirection problem
+		.then((ns) => {
+			update_successful_detections(ns.participants.length);
 		})
 		.catch((err) => {
 			console.log(err.message);
