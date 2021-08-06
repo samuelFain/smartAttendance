@@ -34,18 +34,79 @@
 	<h1 class="text-primary">Statistics</h1>
 </div>
 
-<!-- start new session modal -->
-<div class="modal fade" id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
-				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="container mt-5">
+	<div class="row justify-content-center">
+		<div class="col-4">
+			<iframe
+				style="background: #ffffff; border: none; border-radius: 2px; box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2)"
+				width="400"
+				height="280"
+				src="https://charts.mongodb.com/charts-project-0-qqavs/embed/charts?id=a20ddac2-c5eb-4d7f-b6fe-388ea8371ea8&autoRefresh=60&theme=light"
+			></iframe>
+		</div>
+
+		<div class="col-4">
+			<iframe
+				style="background: #ffffff; border: none; border-radius: 2px; box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2)"
+				width="400"
+				height="280"
+				src="https://charts.mongodb.com/charts-project-0-qqavs/embed/charts?id=efbf1914-3533-4387-b98a-568f63658e08&autoRefresh=60&theme=light"
+			></iframe>
+		</div>
+
+		<div class="col-4">
+			<iframe
+				style="background: #ffffff; border: none; border-radius: 2px; box-shadow: 0 2px 10px 0 rgba(70, 76, 79, 0.2)"
+				width="400"
+				height="280"
+				src="https://charts.mongodb.com/charts-project-0-qqavs/embed/charts?id=9cade391-e7ea-4e60-b111-32e211c8f10b&autoRefresh=60&theme=light"
+			></iframe>
+		</div>
+	</div>
+	<div class="row justify-content-start mt-5">
+		<div class="col-12">
+			<div class="card card-body text-center">
+				<table class="table table-hover text-center text-primary overflow-scroll">
+					<thead>
+						<tr class="table-primary">
+							<th>#</th>
+							<th>First name</th>
+							<th>Last name</th>
+							<th>ID</th>
+							<th>Sessions Attended</th>
+							<th>Score</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for (var i = 0; i < stats.length; i++) { %>
+						<tr>
+							<td class="align-middle"><%= i+1 %></td>
+							<td class="align-middle"><%= stats[i].first_name %></td>
+							<td class="align-middle"><%= stats[i].last_name %></td>
+							<td class="align-middle"><%= stats[i].id %></td>
+							<td class="align-middle"><%= stats[i].attended %></td>
+							<td class="align-middle"><%= stats[i].score %></td>
+						</tr>
+						<% } %>
+					</tbody>
+				</table>
 			</div>
-			<div class="modal-body"><h5>You are about to start a new session</h5></div>
-			<div class="modal-footer justify-content-between">
-				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
-				<a href="dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
+		</div>
+	</div>
+
+	<!-- start new session modal -->
+	<div class="modal fade" id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="exampleModalLabel">Heads up</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body"><h5>You are about to start a new session</h5></div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
+					<a href="dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
+				</div>
 			</div>
 		</div>
 	</div>

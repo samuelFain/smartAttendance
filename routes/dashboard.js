@@ -13,6 +13,9 @@ router.use('/session', require('../routes/session'));
 //handle /attendance_log endpoints
 router.use('/attendance_log', require('../routes/attendance_log'));
 
+//handle /statistics endpoints
+router.use('/statistics', require('../routes/statistics'));
+
 // About page | GET /about
 router.get('/about', (req, res) => {
 	res.render('About');
