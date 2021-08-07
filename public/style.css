@@ -27,7 +27,7 @@ body {
 }
 
 /*-------------- Assets --------------*/
- 
+
 canvas {
 	position: absolute;
 	top: 0;
@@ -63,11 +63,12 @@ canvas {
 	background-color: #18bc9c;
 }
 
-
+.strong-success {
+	color: #18bc9c;
+}
 
 /* Manage Participants page */
 #remove-participant-action:hover,
 #remove-participant-action:focus {
 	background-color: #e74c3c !important;
 }
-

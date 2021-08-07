@@ -7,6 +7,7 @@ const form = document.getElementById('submit-session');
 // form 'submit' listener - send result as json object to server using fetch api
 form.addEventListener('submit', function (e) {
 	e.preventDefault();
+	$('#finish-session-modal').modal('show');
 	const resp = fetch('/dashboard/session/create', {
 		method: 'POST',
 		credentials: 'include',

@@ -21,7 +21,7 @@ async function get_participants_statistics(user) {
 		if (sessions.length > 0) {
 			for (let i = 0; i < user.participants.length; i++) {
 				let attended = sessions_attended(sessions, user.participants[i]);
-				let percent = (attended / sessions.length) * 100 + '%';
+				let percent = Math.floor((attended / sessions.length) * 100) + '%';
 				attended = attended + ' / ' + sessions.length;
 				const p = await Participant.findById(user.participants[i]);
 				stats.push({first_name: p.first_name, last_name: p.last_name, id: p.id, attended: attended, score: percent});

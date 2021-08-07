@@ -30,17 +30,18 @@
 		</div>
 	</div>
 </nav>
-<div class="jumbotron jumbotron-fluid text-center bg-light">
+<div class="jumbotron jumbotron-fluid text-center bg-light pt-2 pb-2">
 	<h1 class="text-primary">Live Session</h1>
-	<div class="spinner-grow text-success" role="status">
+	
 		<!-- <span class="visually-hidden">Live session</span> -->
-	  </div>
+	  
 </div>
 
 <div class="top-padding"></div>
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
 	<div class="col-md-6 d-flex justify-content-center">
 		<div class="card card-body">
+			<div class="spinner-grow text-success" role="status"></div>
 			<div class="row justify-content-center">
 				<div class="col">
 					<div id="faceVideoInput" class="d-flex justify-content-center">
@@ -52,7 +53,7 @@
 				<!-- <p class="lead mt-4" style="float: left">Have An Account? <a href="/users/login">Login</a></p> -->
 				<form id='submit-session' action="/dashboard/session/create" method="POST">
 					<button type='submit' class="btn btn-success btn-lg" id="btn-finish-session">Finish session</button>
-					<a type="button" href="/dashboard" class="btn btn-warning btn-lg" style="float: right">Cancel session</a>
+					<a type="button" href="/dashboard" class="btn btn-warning btn-lg" style="float: right">Exit session</a>
 				</form>
 				
 			</div>
@@ -83,7 +84,23 @@
 						</div>
 					</div>
 		</div>
+</div>
 
+<!-- finish session modal -->
+<div class="modal fade" id="finish-session-modal" tabindex="-1" aria-labelledby="finish-session-modal" data-bs-backdrop="static" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="exampleModalLabel">Session is saved</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body"><h5>You can now go back to the Dashboard</h5></div>
+			<div class="modal-footer mx-auto">
+				<!-- <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button> -->
+				<a href="/dashboard" class="btn btn-primary btn-lg" role="button">Back to dashboard</a>
+			</div>
+		</div>
+	</div>
 </div>
 
 <!-- start new session modal -->
@@ -101,5 +118,7 @@
 	</div>
 </div>
 
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script defer src="/face-api.min.js"></script>
 <script defer src="/face-script.js"></script>
