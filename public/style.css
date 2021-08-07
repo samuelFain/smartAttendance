@@ -67,6 +67,13 @@ canvas {
 	color: #18bc9c;
 }
 
+.popover-header {
+	background-color: #8fa9af;
+	color: #fff;
+}
+.popover {
+	border-color: black;
+}
 /* Manage Participants page */
 #remove-participant-action:hover,
 #remove-participant-action:focus {

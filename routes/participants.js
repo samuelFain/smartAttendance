@@ -5,6 +5,15 @@ const router = express.Router();
 const Participant = require('../models/Participant');
 const User = require('../models/User');
 
+// FUNCTION: 'update_participant' |
+// async function find_participant_in_list(user_obj, participant_id) {
+// 	try{
+// 		for(let i =0; i< user_obj.participants.length ; i++){
+// 			const await = User.
+// 		}
+// 	}
+// }
+
 // FUNCTION: 'get_all_participants' | returns array of all participants belong to a specific user
 async function get_all_participants(user_id) {
 	let data = [];
@@ -25,9 +34,15 @@ async function get_all_participants(user_id) {
 // FUNCTION: 'delete_participant' | remove specific user from user's list
 async function delete_participant(user_id, participants_id) {
 	try {
+		Participant.findByIdAndDelete(participants_id, function (err, docs) {
+			if (err) {
+			} else {
+				console.log('deleted: ', docs);
+			}
+		});
 		const user = await User.findById(user_id);
 		for (let i = 0; i < user.participants.length; i++) {
-			console.log(user.participants[i], participants_id);
+			// console.log(user.participants[i], participants_id);
 			if (user.participants[i] == participants_id) {
 				user.participants.splice(i, 1);
 				i--;
@@ -40,11 +55,27 @@ async function delete_participant(user_id, participants_id) {
 	}
 }
 
-// add participant to user's participant list | POST /participants/add
+// update participant in participants list | POST /participants/update
+router.post('/update', (req, res) => {
+	const {first_name, last_name, id} = req.body;
+	Participant.findOneAndUpdate({id: id}, {first_name: first_name, last_name: last_name}, {new: true}, function (err, doc) {
+		if (err) {
+			console.log(err);
+			req.flash('error_msg', 'Participant cannot be updated');
+			res.redirect('/dashboard/participants');
+		} else {
+			console.log('updated: ', doc);
+			req.flash('success_msg', 'Participant updated');
+			res.redirect('/dashboard/participants');
+		}
+	});
+});
+
+// add participant to user's participants list | POST /participants/add
 router.post('/add', (req, res) => {
 	const {first_name, last_name, id} = req.body;
 	const user = req.user;
-
+	console.log(id);
 	User.findOne({_id: user.id}) //first, find current user
 		.then((user) => {
 			if (user) {
@@ -69,6 +100,7 @@ router.post('/add', (req, res) => {
 									.then((participant) => {
 										req.flash('success_msg', 'Participant added to your list');
 										res.redirect('/dashboard/participants');
+										
 									})
 									.catch((err) => {
 										console.log(err.message);

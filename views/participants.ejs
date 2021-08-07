@@ -32,7 +32,13 @@
 </nav>
 <div class="jumbotron jumbotron-fluid text-center bg-light pt-2 pb-2">
 	<h1 class="text-primary">Manage participants</h1>
-		<%- include ("./partials/messages"); %>
+	<div class="container">
+		<row class="justify-content-center">
+			<div class="col-6 mx-auto">
+				<%- include ("./partials/messages"); %>
+			</div>
+		</row>
+	</div>
 </div>
 
 <div class="container-flex">
@@ -92,7 +98,7 @@
 					</div>
 				
 					</div>
-					<div class="modal-footer">
+					<div class="modal-footer justify-content-between">
 						<button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-lg btn-primary">Add</button>
 					</div>
@@ -127,7 +133,7 @@
 						  </tr>
 						</thead>
 						  <tbody>
-							<% for (var i = 0; i < user.participants.length; i++) { %>
+							<% for (var i = 0; i < participants.length; i++) { %>
 								<tr>
 									<td class='align-middle'><%= i+1 %></td>
 									<td class='align-middle'><%= participants[i].first_name %></td>
@@ -141,15 +147,24 @@
 											  Available actions
 											</button>
 											<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-											  <li><a class="dropdown-item " href="#">Edit participant info</a></li>
-											  <li><a class="dropdown-item " href="#">View participant's Statistics</a></li>
-											  <li><a class="dropdown-item" href="/dashboard/statistics">Go to statics page</a></li>
-											  <li><hr class="dropdown-divider"></li>
+												<li><button type="button" data-bs-target="#update-participant-modal" data-bs-toggle="modal" data-bs-dismiss="modal" class="dropdown-item" data-bs-container="body" data-bs-toggle="popover" title="Edit participant's info" data-bs-trigger="hover focus" data-bs-placement="right" data-bs-content="Changes will apply immediately">
+													Edit
+												  </button></li>
+												<li><span class="d-inline-block " tabindex="0" data-bs-toggle="popover" title="Statistics summary" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+													<button class="dropdown-item" type="button" disabled >Statistics quick view</button>
+												  </span>
+												</li>
+												<li><a href="/dashboard/statistics" type="button" class="dropdown-item" data-bs-container="body" data-bs-toggle="popover" title="Go to Statistics page" data-bs-trigger="hover focus" data-bs-placement="right" data-bs-content="get full statistics on all participants and sessions">
+													To Statistics page
+												  </a></li>
+												  <li><hr class="dropdown-divider"></li>
 											  <li>
+												<span class="d-inline-block " tabindex="0" data-bs-toggle="popover" title="Remove participant" data-bs-trigger="hover focus" data-bs-content="Remove participant from list. this action is permanent.">
 												<form action="/dashboard/participants/<%=participants[i].obj_id%>" method="POST">
 													<input type="hidden" name="_method" value="DELETE">
 													<button type='submit' class="dropdown-item" id="remove-participant-action">Remove participant</button>
 												</form>
+												</span>
 												</li>
 											</ul>
 										  </div>
@@ -169,6 +184,46 @@
 	</div>
 </div>
 
+<!-- Update participant Modal -->
+<div class="modal fade" id="update-participant-modal" data-bs-keyboard="false" tabindex="-1" data-bs-backdrop="static" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Fill in updated participant information</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<form action="/dashboard/participants/update" method="POST">
+					<div class="mb-3">
+						<div class="form-group">
+						<label for="recipient-name"  class="col-form-label">first name:</label>
+						<input type="text" class="form-control" id="first_name" name="first_name" required/>
+						</div>
+					</div>
+					<div class="mb-3">
+						<div class="form-group">
+						<label for="recipient-name" class="col-form-label">last name:</label>
+						<input type="text" class="form-control" id="last_name" name="last_name" required/>
+						</div>
+					</div>
+					<div class="mb-3">
+						<div class="form-group">
+						<label for="recipient-name" id="id" name="id" class="col-form-label">participant ID:</label>
+						<input type="number" class="form-control" id="id" name="id" required/>
+						</div>
+					</div>
+				
+					</div>
+					<div class="modal-footer justify-content-between">
+						<button type="button" class="btn btn-primary btn-lg" data-bs-target="#participant-list-modal" data-bs-toggle="modal" data-bs-dismiss="modal">Back to list</button>
+						<button type="submit" class="btn btn-lg btn-success btn-lg">Update</button>
+					</div>
+				</form>
+		</div>
+	</div>
+</div>
+
+
 <!-- start new session modal -->
 <div class="modal fade " id="start-new-session-modal" tabindex="-1" aria-labelledby="start-new-session-modal" aria-hidden="true">
 	<div class="modal-dialog">
@@ -185,3 +240,10 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  		return new bootstrap.Popover(popoverTriggerEl)
+	})
+</script>
