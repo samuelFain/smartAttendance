@@ -20,7 +20,7 @@ require('./config/passport')(passport);
 // 	.then(console.log('MongoDB connected'))
 // 	.catch((err) => console.log(err));
 mongoose
-	.connect(process.env.MongoURI || db, {useNewUrlParser: true, useUnifiedTopology: true})
+	.connect(process.env.MongoURI || 'mongodb://localhost', {useNewUrlParser: true, useUnifiedTopology: true})
 	.then(console.log('MongoDB connected'))
 	.catch((err) => console.log(err));
 
