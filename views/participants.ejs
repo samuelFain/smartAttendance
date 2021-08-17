@@ -46,7 +46,7 @@
 		<div class="col-md-3">
 			<div class="card card-body hover-card text-center">
 				<h1>
-					<img src="/icons/add_user.png" height="150" width="150" />
+					<img src="/icons/add_user.png" height="100" width="100" />
 				</h1>
 				<h5 class="pt-4 text-primary">Add new participant to your list</h5>
 				<div class="d-grid gap-2 d-md-block">
@@ -57,9 +57,9 @@
 		<div class="col-md-3">
 			<div class="card card-body hover-card text-center">
 				<h1>
-					<img src="/icons/user-list.png" height="150" width="150" />
+					<img src="/icons/user-list.png" height="100" width="100" />
 				</h1>
-				<h5 class="pt-4 text-primary">View full participant list</h5>
+				<h5 class="pt-4 text-primary">View and Edit full participant list</h5>
 				<div class="d-grid gap-2 d-md-block">
 					<button type="button" class="btn btn-primary btn-lg btn-block mt-5 text-success" data-bs-toggle="modal" data-bs-target="#participant-list-modal">View full list</button>
 				</div>
@@ -146,19 +146,21 @@
 											<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
 											  Available actions
 											</button>
-											<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-												<li><button type="button" data-bs-target="#update-participant-modal" data-bs-toggle="modal" data-bs-dismiss="modal" class="dropdown-item" data-bs-container="body" data-bs-toggle="popover" title="Edit participant's info" data-bs-trigger="hover focus" data-bs-placement="right" data-bs-content="Changes will apply immediately">
-													Edit
-												  </button></li>
+											<div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+												<li>
+													<span class="d-inline-block " tabindex="0" data-bs-toggle="popover" title="Edit participant's info" data-bs-trigger="hover focus" data-bs-content="Changes will apply immediately">
+													<button type="button" class="dropdown-item" data-bs-target="#update-participant-modal" data-bs-toggle="modal" data-bs-dismiss="modal" >Edit</button>
+													</span>
+												</li>
 												<li><span class="d-inline-block " tabindex="0" data-bs-toggle="popover" title="Statistics summary" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
-													<button class="dropdown-item" type="button" disabled >Statistics quick view</button>
-												  </span>
+													<button type="button" class="dropdown-item" disabled >Statistics quick view</button>
+												  	</span>
 												</li>
 												<li><a href="/dashboard/statistics" type="button" class="dropdown-item" data-bs-container="body" data-bs-toggle="popover" title="Go to Statistics page" data-bs-trigger="hover focus" data-bs-placement="right" data-bs-content="get full statistics on all participants and sessions">
 													To Statistics page
 												  </a></li>
 												  <li><hr class="dropdown-divider"></li>
-											  <li>
+											  	<li>
 												<span class="d-inline-block " tabindex="0" data-bs-toggle="popover" title="Remove participant" data-bs-trigger="hover focus" data-bs-content="Remove participant from list. this action is permanent.">
 												<form action="/dashboard/participants/<%=participants[i].obj_id%>" method="POST">
 													<input type="hidden" name="_method" value="DELETE">
@@ -235,7 +237,7 @@
 			<div class="modal-body"><h5>You are about to start a new session</h5></div>
 			<div class="modal-footer justify-content-between">
 				<button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
-				<a href="dashboard/session" class="btn btn-primary btn-lg" role="button">Continue</a>
+				<a href="./session" class="btn btn-primary btn-lg" role="button">Continue</a>
 			</div>
 		</div>
 	</div>

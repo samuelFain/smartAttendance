@@ -18,12 +18,12 @@ router.use('/statistics', require('../routes/statistics'));
 
 // About page | GET /about
 router.get('/about', (req, res) => {
-	res.render('About');
+	res.render('about');
 });
 
 // Statistics page | GET /about
 router.get('/statistics', (req, res) => {
-	res.render('Statistics');
+	res.render('statistics');
 });
 
 // Dashboard page | Get /dashboard

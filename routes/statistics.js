@@ -38,7 +38,6 @@ router.get('/', (req, res) => {
 	let promise = get_participants_statistics(req.user).then((stats) => {
 		res.render('statistics', {user: req.user, stats: stats});
 	});
-	// console.log(req.user);
 });
 
 module.exports = router;

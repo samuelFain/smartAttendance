@@ -8,12 +8,12 @@ const User = require('../models/User');
 
 // Login page | GET /login
 router.get('/login', (req, res) => {
-	res.render('Login');
+	res.render('login');
 });
 
 // Register page | GET /register
 router.get('/register', (req, res) => {
-	res.render('Register');
+	res.render('register');
 });
 
 // Register Handle | POST /register
@@ -84,7 +84,6 @@ router.post('/register', (req, res) => {
 			}
 		});
 	}
-	
 });
 
 // Login Handle | POST /login
