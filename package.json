@@ -4,7 +4,7 @@
   "description": "## this project is in dev stage.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint",
     "start": "node app.js",
     "dev": "nodemon app.js "
   },
@@ -35,6 +35,11 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.24.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.2"
   }
 }
