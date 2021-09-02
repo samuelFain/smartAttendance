@@ -6,6 +6,8 @@ Is a multipurpose attendance checking web-app, based on real-time face recogniti
   :arrow_right: back-end: Node.js <br/>
   :arrow_right: machine learning: face.api - face detection and face recognition in the browser implemented on top of the tensorflow.js core API. <br/> 
   :arrow_right: databse: mongoDB <br/>
+  
+  This web-app is live on: https://smart-attendance-webapp.herokuapp.com/
 
 ## Home Screen
 * Login / Register 
