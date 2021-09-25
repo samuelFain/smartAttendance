@@ -2,10 +2,11 @@
 Is a multipurpose attendance checking web-app, based on real-time face recognition technology. </br>
  <br>
   Technologies & platforms: </br>
-  :arrow_right: front-end: HTML/CSS/jQuery/booststrap <br/>
+  :arrow_right: front-end: HTML/CSS/jQuery/booststrap/EJS/JavaScript <br/>
   :arrow_right: back-end: Node.js <br/>
-  :arrow_right: machine learning: face.api - face detection and face recognition in the browser implemented on top of the tensorflow.js core API. <br/> 
-  :arrow_right: databse: mongoDB <br/>
+  :arrow_right: Databse: mongoDB <br/>
+  :arrow_right: Machine learning: face.api - face detection and recognition in the browser implemented on top of the tensorflow.js core API. <br/> 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [source: https://github.com/justadudewhohacks/face-api.js]
   
   This web-app is live on: https://smart-attendance-webapp.herokuapp.com/
 
@@ -53,3 +54,24 @@ Is a multipurpose attendance checking web-app, based on real-time face recogniti
 ## About screen
 
 ![6](https://user-images.githubusercontent.com/65926551/130603986-332f524b-38c7-41f6-9dab-59089be02180.png)
+
+
+## UML 
+* Class Diagram
+
+<img width="577" alt="Screen Shot 2021-09-25 at 19 16 18" src="https://user-images.githubusercontent.com/65926551/134778343-3dd73740-1db1-426c-8e67-d6aa07424cbc.png">
+
+
+* State Machine Diagram
+
+<img width="797" alt="Screen Shot 2021-09-25 at 19 17 49" src="https://user-images.githubusercontent.com/65926551/134778389-857905f2-592a-4c88-a0ce-55820230b933.png">
+
+* Use Case Model
+
+<img width="536" alt="Screen Shot 2021-09-25 at 19 18 35" src="https://user-images.githubusercontent.com/65926551/134778416-aa250f5e-4d47-4d0f-95fd-786b8949d84c.png">
+
+* Database Tables
+
+<img width="285" alt="Screen Shot 2021-09-25 at 19 27 30" src="https://user-images.githubusercontent.com/65926551/134778707-0b03baf2-99c6-47d5-82f1-db6d3486a377.png">
+
+
